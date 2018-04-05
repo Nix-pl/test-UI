@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./app-routing.module";
 
 
 import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { CommentsComponent } from './comments/comments.component';
+import { ItemsListComponent } from './items-list/items-list.component';
 
 import {ItemService} from "./services/item.service";
-import { ItemsListComponent } from './items-list/items-list.component';
+
+
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import { ItemsListComponent } from './items-list/items-list.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     ItemService
