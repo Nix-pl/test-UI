@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ItemService} from "../services/item.service";
-import {Item} from "../classes/item";
 
 @Component({
   selector: 'app-items',
@@ -10,7 +9,7 @@ import {Item} from "../classes/item";
 export class ItemsComponent implements OnInit {
 
   itemsText: string = '';
-  warning: string = '';
+  warningMsg: string = '';
 
   constructor(private itemService: ItemService) { }
 
@@ -21,9 +20,9 @@ export class ItemsComponent implements OnInit {
     if(this.itemsText.length !== 0) {
       this.itemService.addItem(this.itemsText);
       this.itemsText = '';
-      this.warning = '';
+      this.warningMsg = '';
     } else {
-      this.warning = 'Enter type plz'
+      this.warningMsg = 'Write something, please'
     }
   }
 
