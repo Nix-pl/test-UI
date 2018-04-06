@@ -1,11 +1,12 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {AppComponent} from "./app.component";
 import {CommentsComponent} from "./comments/comments.component";
+import {ItemsComponent} from "./items/items.component";
 
 const appRoutes: Routes = [
-  { path : '', component: AppComponent },
-  { path : ':id', component: CommentsComponent }
+  { path : '', component: ItemsComponent, children: [
+    { path : ':id', component: CommentsComponent }
+  ] }
 ];
 
 @NgModule({

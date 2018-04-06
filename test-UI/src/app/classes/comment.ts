@@ -1,11 +1,9 @@
-export class Comment {
+export class CommentContent {
   id: number;
   text: string;
-  img: string;
 
-  constructor(id: number, text: string, img: string) {
+  constructor(id: number, text: string) {
     this.id = id;
     this.text = text;
-    this.img = img;
   }
 }

@@ -1,14 +1,19 @@
 <div class="item-block">
     <div class="form-group">
-      <div class="col-md-12">
-        <input type="text" id="items" placeholder="Type name here..." class="form-control items-input" [(ngModel)]="itemsText" value="">
-        <button type="button" class="btn btn-primary btn-submit" (click)="addItems()" >Add new</button>
-        <p>{{ warningMsg }}</p>
-        <ul>
-          <li *ngFor="let item of itemService.getItems()">
-            <app-items-list [item]="item"></app-items-list>
-          </li>
-        </ul>
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" id="items" placeholder="Type name here..." class="form-control items-input" [(ngModel)]="itemsText" value="">
+          <button type="button" class="btn btn-primary btn-submit" (click)="addItems()" >Add new</button>
+          <p>{{ warningMsg }}</p>
+          <ul>
+            <li *ngFor="let item of itemService.getItems()">
+              <app-items-list [item]="item"></app-items-list>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
 </div>
