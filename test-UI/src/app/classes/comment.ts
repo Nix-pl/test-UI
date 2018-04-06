@@ -1,9 +1,10 @@
 export class CommentContent {
-  id: number;
+  // id: number;
   text: string;
 
-  constructor(id: number, text: string) {
-    this.id = id;
+  // constructor(id: number, text: string) {
+  constructor(text: string) {
+    // this.id = id;
     this.text = text;
   }
 }

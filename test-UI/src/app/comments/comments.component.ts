@@ -9,7 +9,7 @@ import {ItemService} from "../services/item.service";
 })
 export class CommentsComponent implements OnInit {
 
-  id: number;
+  idCom: number;
   commentText = '';
 
   constructor(private route: ActivatedRoute,
@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) =>{
-      this.id = +params['id'];
+      this.idCom = +params['id'];
     })
 
   }
@@ -25,7 +25,7 @@ export class CommentsComponent implements OnInit {
   onKeyUp(event){
     if ((event.code === 'Enter' || event.code ==='NumpadEnter') && event.ctrlKey) {
       this.commentText = event.target.value;
-    this.itemService.addComment(this.commentText);
+    this.itemService.addComment(this.idCom, this.commentText);
     }
 
 

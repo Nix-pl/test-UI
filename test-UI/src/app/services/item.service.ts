@@ -1,14 +1,15 @@
 import {Injectable} from "@angular/core";
 import {Item} from "../classes/item";
 import {CommentContent} from "../classes/comment";
-import {Comment} from "@angular/compiler";
 
 @Injectable()
 export class ItemService{
 
   private nextId: number;
+  private nextIdMsg: number;
   // items: Item[];
   array: CommentContent[];
+
 
   constructor() {
 
@@ -51,11 +52,42 @@ export class ItemService{
     localStorage.setItem('items', JSON.stringify({items: items}));
   }
 
-  public addComment(text: string){
-    let comment = new CommentContent(this.nextId, text);
-    console.log(comment);
+  public addComment(id: number, text: string){
+    // let items = this.getItems();
+    // let textMsg = items.find(a=> a.id === id).text;
+    // let comment = new CommentContent(this.nextId, text);
+    // let item = new Item(id, textMsg, [comment]);
+    // items = items.filter((item)=> item.id != id);
+    // items.push(item);
+
     let items = this.getItems();
-    // items.push(comment)
+    let itemMsg = items.find(a=> a.id === id).text;
+    let itemComment = items.find(a=> a.id === id).comments;
+
+
+    // if (itemComment.length == 0) {
+    //   this.nextIdMsg = 0;
+    // } else {
+    //   let maxId = items[itemComment.length - 1].id;
+    //   this.nextIdMsg = maxId + 1;
+    // }
+
+    // let comment = new CommentContent(this.nextIdMsg, text);
+    let comment = new CommentContent(text);
+    itemComment.push(comment);
+
+    let item = new Item(id, itemMsg, itemComment);
+
+    items = items.filter((item)=> item.id != id);
+    items.push(item);
+
+
+    this.setLocalStorageItems(items);
+    // this.nextId++
+
+    // items.push(item[])
+    // items.push(comment);
+
   }
 
 }
